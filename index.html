@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Books Resource Hub - Legitimate Reading Resources</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.3em;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+        
+        .disclaimer {
+            background: rgba(52, 152, 219, 0.1);
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            padding: 15px;
+            color: #2980b9;
+            font-style: italic;
+        }
+        
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.9em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        .icon {
+            font-size: 1.3em;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+        
+        .card {
+            background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 5px solid #3498db;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            border-left-color: #e74c3c;
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .card-icon {
+            font-size: 2em;
+            margin-right: 15px;
+            padding: 10px;
+            background: linear-gradient(45deg, #3498db, #9b59b6);
+            border-radius: 50%;
+            color: white;
+            min-width: 60px;
+            text-align: center;
+        }
+        
+        .card h3 {
+            color: #2c3e50;
+            font-size: 1.3em;
+            margin: 0;
+        }
+        
+        .card p {
+            color: #6c757d;
+            margin-bottom: 20px;
+            font-size: 1em;
+            line-height: 1.6;
+        }
+        
+        .links {
+            list-style: none;
+        }
+        
+        .links li {
+            margin-bottom: 12px;
+        }
+        
+        .links a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 15px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            background: rgba(52, 152, 219, 0.1);
+            border: 2px solid rgba(52, 152, 219, 0.2);
+            font-size: 0.95em;
+        }
+        
+        .links a:hover {
+            background: #3498db;
+            color: white;
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        .search-box {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            max-width: 500px;
+            padding: 15px 25px;
+            border: 2px solid #e9ecef;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s ease;
+            font-family: Georgia, serif;
+        }
+        
+        input[type="text"]:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 15px rgba(52, 152, 219, 0.3);
+            transform: scale(1.02);
+        }
+        
+        .featured {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .featured h2 {
+            color: white;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .featured .card {
+            background: rgba(255, 255, 255, 0.9);
+            color: #2c3e50;
+        }
+        
+        .category-tags {
+            margin-top: 15px;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: rgba(52, 152, 219, 0.1);
+            color: #3498db;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            margin: 3px;
+            border: 1px solid rgba(52, 152, 219, 0.2);
+        }
+        
+        .reading-tips {
+            background: rgba(46, 204, 113, 0.1);
+            border: 2px solid #2ecc71;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .reading-tips h4 {
+            color: #27ae60;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2.2em;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .card-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .card-icon {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Free Books Resource Hub</h1>
+            <p class="subtitle">Discover thousands of legitimate free books from trusted sources</p>
+            <div class="disclaimer">
+                <strong>📖 Legal Notice:</strong> All resources listed here provide books that are legally free - either in the public domain, offered by publishers, or available through legitimate library services.
+            </div>
+        </header>
+        
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 Search for book categories, authors, or resources..." onkeyup="filterContent()">
+        </div>
+        
+        <div class="section featured">
+            <h2><span class="icon">⭐</span>Featured: Public Domain Classics</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">📖</div>
+                        <h3>Project Gutenberg</h3>
+                    </div>
+                    <p>Over 70,000 free eBooks including classics by Shakespeare, Dickens, Jane Austen, and more. The world's largest collection of public domain books.</p>
+                    <ul class="links">
+                        <li><a href="https://www.gutenberg.org/" target="_blank">Browse 70,000+ Free Books</a></li>
+                        <li><a href="https://www.gutenberg.org/browse/scores/top" target="_blank">Most Popular Downloads</a></li>
+                        <li><a href="https://www.gutenberg.org/browse/recent/last1" target="_blank">Recently Added Books</a></li>
+                    </ul>
+                    <div class="category-tags">
+                        <span class="tag">Classic Literature</span>
+                        <span class="tag">Poetry</span>
+                        <span class="tag">Philosophy</span>
+                        <span class="tag">History</span>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">🏛️</div>
+                        <h3>Internet Archive Books</h3>
+                    </div>
+                    <p>Digital library with millions of free books, including modern works, textbooks, and rare manuscripts from libraries worldwide.</p>
+                    <ul class="links">
+                        <li><a href="https://archive.org/details/books" target="_blank">Browse Book Collection</a></li>
+                        <li><a href="https://archive.org/details/openlibrary" target="_blank">Open Library</a></li>
+                        <li><a href="https://archive.org/details/texts" target="_blank">Text Collections</a></li>
+                    </ul>
+                    <div class="category-tags">
+                        <span class="tag">Academic</span>
+                        <span class="tag">Textbooks</span>
+                        <span class="tag">Rare Books</span>
+                        <span class="tag">Modern Fiction</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2><span class="icon">🏫</span>Educational & Academic Resources</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">🎓</div>
+                        <h3>MIT OpenCourseWare</h3>
+                    </div>
+                    <p>Free textbooks and course materials from MIT courses. Covers engineering, science, mathematics, and liberal arts.</p>
+                    <ul class="links">
+                        <li><a href="https://ocw.mit.edu/" target="_blank">MIT Course Materials</a></li>
+                        <li><a href="https://ocw.mit.edu/courses/find-by-topic/" target="_blank">Browse by Subject</a></li>
+                        <li><a href="https://ocw.mit.edu/courses/find-by-department/" target="_blank">Departmental Courses</a></li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">📊</div>
+                        <h3>OpenStax Textbooks</h3>
+                    </div>
+                    <p>High-quality, peer-reviewed textbooks that are completely free. Covers subjects from high school to college level.</p>
+                    <ul class="links">
+                        <li><a href="https://openstax.org/" target="_blank">Free Textbooks</a></li>
+                        <li><a href="https://openstax.org/subjects" target="_blank">Browse Subjects</a></li>
+                        <li><a href="https://openstax.org/adoption" target="_blank">Instructor Resources</a></li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">🌐</div>
+                        <h3>Directory of Open Access Books</h3>
+                    </div>
+                    <p>Academic books from university presses and scholarly publishers, peer-reviewed and freely available.</p>
+                    <ul class="links">
+                        <li><a href="https://www.doabooks.org/" target="_blank">Browse Academic Books</a></li>
+                        <li><a href="https://www.doabooks.org/en/browse-by-subject" target="_blank">Browse by Subject</a></li>
+                        <li><a href="https://www.doabooks.org/en/publishers" target="_blank">University Publishers</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2><span class="icon">🌟</span>Modern Fiction & Contemporary Works</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">📱</div>
+                        <h3>Wattpad</h3>
+                    </div>
+                    <p>World's largest community of writers and readers. Millions of original stories from emerging authors.</p>
+                    <ul class="links">
+                        <li><a href="https://www.wattpad.com/" target="_blank">Read Free Stories</a></li>
+                        <li><a href="https://www.wattpad.com/stories/featured" target="_blank">Featured Stories</a></li>
+                        <li><a href="https://www.wattpad.com/stories/contest" target="_blank">Contest Winners</a></li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">✍️</div>
+                        <h3>Royal Road</h3>
+                    </div>
+                    <p>Platform for original fiction, especially fantasy, sci-fi, and LitRPG genres. Community-driven ratings and reviews.</p>
+                    <ul class="links">
+                        <li><a href="https://www.royalroad.com/" target="_blank">Browse Fiction</a></li>
+                        <li><a href="https://www.royalroad.com/fictions/best-rated" target="_blank">Top Rated Stories</a></li>
+                        <li><a href="https://www.royalroad.com/fictions/trending" target="_blank">Trending Now</a></li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">📚</div>
+                        <h3>ManyBooks</h3>
+                    </div>
+                    <p>Over 50,000 free books in various formats. Mix of public domain classics and contemporary works from indie authors.</p>
+                    <ul class="links">
+                        <li><a href="https://manybooks.net/" target="_blank">Browse Free Books</a></li>
+                        <li><a href="https://manybooks.net/categories" target="_blank">Browse Categories</a></li>
+                        <li><a href="https://manybooks.net/search-book" target="_blank">Advanced Search</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2><span class="icon">🏛️</span>Digital Libraries & Archives</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">🌍</div>
+                        <h3>World Digital Library</h3>
+                    </div>
+                    <p>UNESCO partnership providing free access to manuscripts, maps, rare books, and cultural materials from around the world.</p>
+                    <ul class="links">
+                        <li><a href="https://www.wdl.org/" target="_blank">Cultural Heritage Books</a></li>
+                        <li><a href="https://www.wdl.org/en/search/?f=book" target="_blank">Book Collection</a></li>
+                        <li><a href="https://www.wdl.org/en/browse/" target="_blank">Browse by Country</a></li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">🇺🇸</div>
+                        <h3>HathiTrust Digital Library</h3>
+                    </div>
+                    <p>Partnership of academic libraries preserving millions of books. Many public domain works freely available.</p>
+                    <ul class="links">
+                        <li><a href="https://www.hathitrust.org/" target="_blank">Digital Library</a></li>
+                        <li><a href="https://catalog.hathitrust.org/" target="_blank">Search Catalog</a></li>
+                        <li><a href="https://www.hathitrust.org/help_digital_library" target="_blank">How to Use</a></li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">📖</div>
+                        <h3>Standard Ebooks</h3>
+                    </div>
+                    <p>Beautifully formatted public domain books with modern typography and careful proofreading.</p>
+                    <ul class="links">
+                        <li><a href="https://standardebooks.org/" target="_blank">Browse Collection</a></li>
+                        <li><a href="https://standardebooks.org/ebooks/" target="_blank">All Ebooks</a></li>
+                        <li><a href="https://standardebooks.org/contribute" target="_blank">About the Project</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2><span class="icon">📱</span>Library Apps & Services</h2>
+            <div class="reading-tips">
+                <h4>💡 Pro Tip: Use Your Local Library!</h4>
+                <p>Most public libraries offer free digital book lending through apps like OverDrive, Libby, and Hoopla. Get a library card and access thousands of current bestsellers and audiobooks!</p>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">📚</div>
+                        <h3>OverDrive / Libby</h3>
+                    </div>
+                    <p>Access your local library's digital collection. Borrow eBooks and audiobooks with your library card.</p>
+                    <ul class="links">
+                        <li><a href="https://www.overdrive.com/" target="_blank">OverDrive Website</a></li>
+                        <li><a href="https://libbyapp.com/" target="_blank">Libby App</a></li>
+                        <li><a href="https://help.libbyapp.com/" target="_blank">Getting Started</a></li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">🎵</div>
+                        <h3>Hoopla Digital</h3>
+                    </div>
+                    <p>Library service for digital media including eBooks, audiobooks, comics, and movies.</p>
+                    <ul class="links">
+                        <li><a href="https://www.hoopladigital.com/" target="_blank">Hoopla Website</a></li>
+                        <li><a href="https://www.hoopladigital.com/browse" target="_blank">Browse Collection</a></li>
+                        <li><a href="https://www.hoopladigital.com/register" target="_blank">Sign Up</a></li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">🌐</div>
+                        <h3>Open Library</h3>
+                    </div>
+                    <p>Internet Archive's lending library. Borrow digital copies of books just like a physical library.</p>
+                    <ul class="links">
+                        <li><a href="https://openlibrary.org/" target="_blank">Open Library</a></li>
+                        <li><a href="https://openlibrary.org/subjects" target="_blank">Browse Subjects</a></li>
+                        <li><a href="https://openlibrary.org/account/login" target="_blank">Create Account</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2><span class="icon">🌍</span>International & Multilingual</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">🇮🇳</div>
+                        <h3>National Digital Library of India</h3>
+                    </div>
+                    <p>Free access to Indian books, journals, and educational content in multiple Indian languages.</p>
+                    <ul class="links">
+                        <li><a href="https://ndl.iitkgp.ac.in/" target="_blank">NDL India</a></li>
+                        <li><a href="https://ndl.iitkgp.ac.in/browse" target="_blank">Browse Collections</a></li>
+                        <li><a href="https://ndl.iitkgp.ac.in/register" target="_blank">Free Registration</a></li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">🌐</div>
+                        <h3>Europeana</h3>
+                    </div>
+                    <p>European cultural heritage platform with books, manuscripts, and documents from European libraries.</p>
+                    <ul class="links">
+                        <li><a href="https://www.europeana.eu/" target="_blank">Europeana Portal</a></li>
+                        <li><a href="https://www.europeana.eu/en/search?f%5BTYPE%5D%5B%5D=TEXT" target="_blank">Browse Books</a></li>
+                        <li><a href="https://www.europeana.eu/en/collections" target="_blank">Special Collections</a></li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">📖</div>
+                        <h3>Books in Multiple Languages</h3>
+                    </div>
+                    <p>Resources for books in languages other than English from various cultural institutions.</p>
+                    <ul class="links">
+                        <li><a href="https://www.gutenberg.org/browse/languages/" target="_blank">Gutenberg: Other Languages</a></li>
+                        <li><a href="https://gallica.bnf.fr/" target="_blank">Gallica (French)</a></li>
+                        <li><a href="https://www.deutsche-digitale-bibliothek.de/" target="_blank">German Digital Library</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function filterContent() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.card');
+            
+            cards.forEach(card => {
+                const cardText = card.textContent.toLowerCase();
+                if (cardText.includes(searchInput)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            // Show/hide sections based on visible cards
+            document.querySelectorAll('.section').forEach(section => {
+                const visibleCards = section.querySelectorAll('.card[style*="block"], .card:not([style])');
+                if (visibleCards.length === 0 && !section.classList.contains('featured')) {
+                    section.style.display = 'none';
+                } else {
+                    section.style.display = 'block';
+                }
+            });
+        }
+        
+        // Add loading animation
+        window.addEventListener('load', function() {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach((section, index) => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                
+                setTimeout(() => {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+        
+        // Add card hover effects
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+        
+        // Add click tracking for external links
+        document.querySelectorAll('a[target="_blank"]').forEach(link => {
+            link.addEventListener('click', function() {
+                // You could add analytics tracking here
+                console.log('External link clicked:', this.href);
+            });
+        });
+    </script>
+</body>
+</html>
